@@ -10,7 +10,7 @@ NUM_OF_CLASSES = 10
 ACTIVATION = 'relu'
 OPTIMIZER = 'adam'
 METRIC = 'accuracy'
-NUM_OF_EPOCHS = 10  # num of passes through training dataset
+NUM_OF_EPOCHS = 10
 VERBOSE = 2  # output format
 CORRECT_COLOR = 'blue'
 INCORRECT_COLOR = 'magenta'
@@ -34,7 +34,8 @@ test_imgs = test_imgs / PIXEL_SCALE_DIVISOR
 model = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=input_shape),
     tf.keras.layers.Dense(NUM_OF_NODES, activation=ACTIVATION),
-    tf.keras.layers.Dense(NUM_OF_CLASSES)
+    tf.keras.layers.Dense(NUM_OF_CLASSES),
+    tf.keras.layers.Softmax()
 ])
 
 # compile model
@@ -48,9 +49,6 @@ model.fit(train_imgs, train_labels, epochs=NUM_OF_EPOCHS, verbose=VERBOSE)
 
 # evaluate accuracy on test dataset
 test_loss, test_acc = model.evaluate(test_imgs, test_labels, verbose=VERBOSE)
-
-# add layer that converts logits to probabilities
-model.add(tf.keras.layers.Softmax())
 
 # create prediction array of test images
 predictions = model.predict(test_imgs)

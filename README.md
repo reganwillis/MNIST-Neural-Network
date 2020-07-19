@@ -18,5 +18,7 @@ The current version of the program uses 10 epochs, which means the model will la
 
 # The Results
 The program plots the first few results from the test dataset. Here are the results with 1 epoch and 10 epochs, respectively:
-https://github.com/reganwillis/MNIST-Neural-Network/blob/master/one_epoch_ex.png
-https://github.com/reganwillis/MNIST-Neural-Network/blob/master/ten_epochs_ex.png
+![](https://github.com/reganwillis/MNIST-Neural-Network/blob/master/one_epoch_ex.png)
+
+
+![](https://github.com/reganwillis/MNIST-Neural-Network/blob/master/ten_epochs_ex.png)
